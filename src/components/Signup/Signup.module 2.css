@@ -1,0 +1,64 @@
+.container{
+    height: 100%;
+    min-height: 100vh;
+    width: 100%;
+    background-color: rgb(104, 15, 182);
+    background: linear-gradient(to right, rgb(104,15,182), rgb(186, 129, 235) );
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerBox{
+    min-width: 400px;
+    height: fit-content;
+    width: fit-content;
+    background-color: aliceblue;
+    box-shadow: inset;
+    padding: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+}
+.footer{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.footer button{
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgb(97, 27, 158);
+    color: aliceblue;
+    padding: 10px, 16px;
+    width: 100%;
+    transition: 100ms;
+}
+.footer error{
+    font-weight: bold;
+    font-size: 1rem;
+    color: rgb(222, 43, 33);
+    text-align: center;
+}
+.footer button:hover{
+    background-color: rgb(174, 107, 232);
+}
+.footer p{
+    font-weight: 700;
+    color: black;
+}
+.footer p span a{
+    font-weight: bold;
+    color: rgb(106, 25, 182);
+    letter-spacing: 1px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.footer button:disabled{
+    background-color: gray !important;
+}

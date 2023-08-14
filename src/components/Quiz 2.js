@@ -1,32 +1,25 @@
-import React, { useState, useEffect } from 'react';
-import { techQuestions, geographyQuestions, gkQuestions, sportsQuestions } from './Questions2';
+import { useState, useEffect } from 'react';
+import { quiz } from './Questions';
 import '../css/quiz.css';
 
+
 const Quiz = () => {
-  const [activeQuestion, setActiveQuestion] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState('');
-  const [showResult, setShowResult] = useState(false);
-  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null);
+  const [activeQuestion, setActiveQuestion] = useState(0)
+  const [selectedAnswer, setSelectedAnswer] = useState('')
+  const [showResult, setShowResult] = useState(false)
+  const [selectedAnswerIndex, setSelectedAnswerIndex] = useState(null)
   const [result, setResult] = useState({
     score: 0,
     correctAnswers: 0,
     wrongAnswers: 0,
-  });
+  })
   const [timer, setTimer] = useState(10); // Timer state
-  const [selectedTheme, setSelectedTheme] = useState('Tech'); // Selected theme state
 
-  const themeQuestionSets = {
-    Tech: techQuestions,
-    Geography: geographyQuestions,
-    'General Knowledge': gkQuestions,
-    Sports: sportsQuestions,
-  };
-
-  const { questions, topic } = themeQuestionSets[selectedTheme];
-  const { question, choices, correctAnswer } = questions[activeQuestion];
+  const { questions } = quiz
+  const { question, choices, correctAnswer } = questions[activeQuestion]  //rendering choices and correct answer using map fn.
 
   const onClickNext = () => {
-    setSelectedAnswerIndex(null);
+    setSelectedAnswerIndex(null)
     setResult((prev) =>
       selectedAnswer
         ? {
@@ -35,21 +28,25 @@ const Quiz = () => {
             correctAnswers: prev.correctAnswers + 1,
           }
         : { ...prev, wrongAnswers: prev.wrongAnswers + 1 }
-    );
+    )
     if (activeQuestion !== questions.length - 1) {
-      setActiveQuestion((prev) => prev + 1);
+      setActiveQuestion((prev) => prev + 1)
     } else {
-      setActiveQuestion(0);
-      setShowResult(true);
+      setActiveQuestion(0)
+      setShowResult(true)
     }
-  };
+  }
 
   const onAnswerSelected = (answer, index) => {
-    setSelectedAnswerIndex(index);
-    setSelectedAnswer(answer === correctAnswer);
-  };
+    setSelectedAnswerIndex(index)
+    if (answer === correctAnswer) {
+      setSelectedAnswer(true)
+    } else {
+      setSelectedAnswer(false)
+    }
+  }
 
-  const addLeadingZero = (number) => (number > 9 ? number : `0${number}`);
+  const addLeadingZero = (number) => (number > 9 ? number : `0${number}`)
 
   const startTimer = () => {
     const interval = setInterval(() => {
@@ -57,6 +54,7 @@ const Quiz = () => {
         if (prevTimer > 0) {
           return prevTimer - 1;
         } else {
+          // Timer reached 0, move to the next question
           clearInterval(interval);
           onClickNext();
           return prevTimer;
@@ -66,10 +64,12 @@ const Quiz = () => {
   
     return interval;
   };
+  
 
+ 
   const resetTimer = (interval) => {
     clearInterval(interval);
-    setTimer(10);
+    setTimer(10); // Reset timer to 10 seconds
   };
 
   useEffect(() => {
@@ -82,21 +82,9 @@ const Quiz = () => {
     }
   }, [activeQuestion, showResult]);
 
-  const renderThemeSelector = () => (
-    <div className="theme-selector">
-      <select value={selectedTheme} onChange={(e) => setSelectedTheme(e.target.value)}>
-        {Object.keys(themeQuestionSets).map((theme) => (
-          <option key={theme} value={theme}>
-            {theme}
-          </option>
-        ))}
-      </select>
-    </div>
-  );
 
   return (
     <div className="quiz-page">
-      {renderThemeSelector()}
       {!showResult ? (
         <div className="quiz-container">
           <div>
@@ -110,8 +98,7 @@ const Quiz = () => {
               <li
                 onClick={() => onAnswerSelected(answer, index)}
                 key={answer}
-                className={selectedAnswerIndex === index ? 'selected-answer' : null}
-              >
+                className={selectedAnswerIndex === index ? 'selected-answer' : null}>
                 {answer}
               </li>
             ))}
@@ -129,18 +116,18 @@ const Quiz = () => {
             Total Questions: <span>{questions.length}</span>
           </p>
           <p>
-            Total Score: <span>{result.score}</span>
+            Total Score:<span> {result.score}</span>
           </p>
           <p>
-            Correct Answers: <span>{result.correctAnswers}</span>
+            Correct Answers:<span> {result.correctAnswers}</span>
           </p>
           <p>
-            Wrong Answers: <span>{result.wrongAnswers}</span>
+            Wrong Answers:<span> {result.wrongAnswers}</span>
           </p>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default Quiz;

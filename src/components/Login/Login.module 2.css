@@ -1,0 +1,79 @@
+.container {
+    background: linear-gradient(to right, rgb(104, 15, 182), rgb(186, 129, 235));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent content overflow */
+}
+
+.container label {
+    width: 85%;
+    color: rgb(11, 11, 11); /* Improved label visibility */
+}
+
+.innerBox {
+    min-width: 350px; /* Adjusted for better responsiveness */
+    width: 80%;
+    max-width: 500px; /* Max width for larger screens */
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    margin-top: 20px;
+    align-items: center;
+}
+
+.footer button {
+    outline: none;
+    border: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: rgb(97, 27, 158);
+    color: white;
+    padding: 10px 20px;
+    width: 50%;
+    transition: background-color 0.3s, transform 0.2s;
+    cursor: pointer;
+}
+
+.footer button:hover {
+    background-color: rgb(160, 100, 212);
+    transform: scale(1.05);
+}
+
+.footer p {
+    font-weight: 700;
+    color: black;
+}
+
+.footer p span a {
+    font-weight: bold;
+    color: rgb(106, 25, 182);
+    letter-spacing: 1px;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.heading {
+    margin-top: 15px;
+    margin-left: 20px;
+    color: rgb(14, 14, 14); /* Improved heading visibility */
+}

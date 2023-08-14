@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { techQuestions, geographyQuestions, gkQuestions, sportsQuestions } from './Questions2';
 import '../css/quiz.css';
 
-const Quiz = () => {
+const Quiz2 = () => {
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState('');
   const [showResult, setShowResult] = useState(false);
@@ -143,4 +143,4 @@ const Quiz = () => {
   );
 };
 
-export default Quiz;
+export default Quiz2;

@@ -4,9 +4,6 @@ import styles from './Signup.module.css';
 import InputControl from '../InputControl/InputControl';
 import {createUserWithEmailAndPassword ,updateProfile} from "firebase/auth";
 import {auth} from "../../firebase";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-
-
 
 function Signup(){
     const navigate= useNavigate();
@@ -15,20 +12,6 @@ function Signup(){
         email: "",
         pass: "",
     });
-
-    const handleGoogleSignIn = () => {
-        const provider = new GoogleAuthProvider();
-      
-        signInWithPopup(auth, provider)
-          .then((result) => {
-            const user = result.user;
-            navigate('/');
-          })
-          .catch((error) => {
-            // Handle error if Google Sign-In fails.
-            console.error("Google Sign-In Error:", error);
-          });
-      };
 
     const[errorMsg, setErrorMsg]= useState("");
     const[submitButtonDisabled, setSubmitButtonDisabled]= useState(false);
@@ -81,7 +64,6 @@ function Signup(){
                 <div className='styles.footer'>
                     <b className='styles.error'>{errorMsg}</b>
                     <button onClick={handleSubmission} disabled={submitButtonDisabled}>Signup</button>
-                    <button onClick={handleGoogleSignIn} disabled={submitButtonDisabled}>Sign In with Google</button>
                     <p>
                         Alreaady have an account?{" "}
                         <span>

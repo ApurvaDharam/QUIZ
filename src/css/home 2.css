@@ -19,10 +19,8 @@ h2{
 
 .links {
     display: flex;
-    
+    flex-direction: column;
     align-items: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
 }
 
 
@@ -64,8 +62,6 @@ h2{
     text-align: center;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
     transition: color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-    margin-bottom: 30px;
-
 }
 .app-heading:hover {
     color: #ffd700;
