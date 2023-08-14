@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Anek+Malayalam:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.quiz-page { 
+  background: linear-gradient(90.04deg, #007580 0.03%, #acf6fb 99.96%);
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: 100vh;
+  width: 100vw;
+}
+h1{
+  font-family: 'Segoe UI', Tahoma;
+  text-align: center;
+}
+.quiz-container {
+  max-width: 500px;
+  min-width: 250px;
+  max-height: 500px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin-top: 150px;
+  padding: 30px 60px;
+}
+
+.quiz-container .active-question-no {
+  font-size: 32px;
+  font-weight: 500;
+  color: #003e80;
+}
+
+.quiz-container .total-question {
+  font-size: 16px;
+  font-weight: 500;
+  color: #e0dee3;
+}
+
+.quiz-container h2 {
+  font-size: 20px;
+  font-weight: 500;
+  margin: 0;
+  color: #005c80;
+}
+
+.quiz-container ul {
+  margin-top: 20px;
+  margin-left: -40px;
+}
+
+.quiz-container ul li {
+  text-decoration: none;
+  list-style: none;
+  color: #2d264b;
+  font-size: 16px;
+  background: #ffffff;
+  border: 1px solid #eaeaea;
+  border-radius: 16px;
+  padding: 11px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.quiz-container ul .selected-answer {
+  background: #8ae4f0;
+  border: 1px solid #005c80;
+}
+
+.quiz-container button {
+  background: linear-gradient(90.04deg, #006b80 0.03%, #a4f4f8 99.96%);
+  border-radius: 9px;
+  font-size: 18px;
+  color: #ffffff;
+  padding: 10px 42px;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+.quiz-container button:disabled {
+  background: #e7e8e9;
+  color: #9fa3a9;
+  cursor: not-allowed;
+}
+.quiz-container button:hover{
+  background-color:#008e98
+}
+
+.flex-right {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.result {
+  max-width: 500px;
+  min-width: 250px;
+  max-height: 500px;
+  background: #ffffff;
+  border-radius: 4px;
+  margin-top: 150px;
+  padding: 30px 60px;
+}
+
+.result h3 {
+  font-size: 50px;
+  letter-spacing: 1.4px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.result p {
+  font-size: 26px;
+  font-weight: 500;
+}
+
+.result p span {
+  color: #005a80;
+  font-size: 22px;
+}
+footer{
+  position: fixed;
+  bottom: 0%;
+  width: 100%;
+  padding-left: 50px;
+
+}
+.timer {
+  font-size: 18px;
+  color: #ff5733; /* You can choose your preferred color */
+  margin-top: 10px;
+  align-items: center;
+}
